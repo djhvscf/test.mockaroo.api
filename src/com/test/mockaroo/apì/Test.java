@@ -36,12 +36,18 @@ public class Test {
 
 		JSONObject data = mockarooApi.getJSONObject(conn, columns);
 	
-		MockarooDataAccess dataAccess = new MockarooDataAccess("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/testmockarooapi", "root", "mtrlnk");
-		String[] tableColumns = new String[2];
-		tableColumns[0] = "data";
-		tableColumns[1] = "data2";
-		
-		mockarooApi.Insert(data, dataAccess, "table_test", tableColumns);
+		try
+		{
+			MockarooDataAccess dataAccess = new MockarooDataAccess("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/testmockarooapi", "root", "mtrlnk");
+			String[] tableColumns = new String[2];
+			tableColumns[0] = "data";
+			tableColumns[1] = "data2";
+			
+			mockarooApi.Insert(data, dataAccess, "table_test", tableColumns);
+		}
+		catch(Exception e)
+		{
+		}
 		
 		MockarooFile test = new MockarooExcel("c:/temp/","test","testing","en", "EN");
 	    test.write(data); //Generate a Excel file
