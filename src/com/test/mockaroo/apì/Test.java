@@ -11,6 +11,7 @@ import com.mockaroo.api.MockarooApi;
 import com.mockaroo.api.MockarooDataAccess;
 import com.mockaroo.api.MockarooExcel;
 import com.mockaroo.api.MockarooJSON;
+//import com.mockaroo.api.MockarooXML;
 import com.mockaroo.api.classes.MockarooCreateJSONObject;
 import com.mockaroo.api.classes.MockarooFile;
 
@@ -54,6 +55,9 @@ public class Test {
 
 	    MockarooFile json = new MockarooJSON("c:/temp/", "test");
 	    json.write(data); //Generate a .json file
+	    
+	    /*MockarooFile xml = new MockarooXML("c:/temp/", "test", "lala");
+		xml.write(data);*/
 		
 		//System.out.println(data.getInt("yearsEmployed"));
 		System.out.println(data.getString("department"));
