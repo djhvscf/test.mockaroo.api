@@ -1,7 +1,5 @@
 package com.test.mockaroo.apì;
 
-
-
 import java.net.HttpURLConnection;
 
 import org.json.JSONArray;
@@ -11,6 +9,7 @@ import com.mockaroo.api.MockarooApi;
 import com.mockaroo.api.MockarooDataAccess;
 import com.mockaroo.api.MockarooExcel;
 import com.mockaroo.api.MockarooJSON;
+import com.mockaroo.api.MockarooXML;
 //import com.mockaroo.api.MockarooXML;
 import com.mockaroo.api.classes.MockarooCreateJSONObject;
 import com.mockaroo.api.classes.MockarooFile;
@@ -44,20 +43,20 @@ public class Test {
 			tableColumns[0] = "data";
 			tableColumns[1] = "data2";
 			
-			mockarooApi.Insert(data, dataAccess, "table_test", tableColumns);
+			dataAccess.Insert("table_test", data, tableColumns);
 		}
 		catch(Exception e)
 		{
 		}
 		
-		MockarooFile test = new MockarooExcel("c:/temp/","test","testing","en", "EN");
-	    test.write(data); //Generate a Excel file
+		MockarooFile excel = new MockarooExcel("c:/temp/","test","testing","en", "EN");
+	    excel.write(data); //Generate a Excel file
 
 	    MockarooFile json = new MockarooJSON("c:/temp/", "test");
 	    json.write(data); //Generate a .json file
 	    
-	    /*MockarooFile xml = new MockarooXML("c:/temp/", "test", "lala");
-		xml.write(data);*/
+	    MockarooFile xml = new MockarooXML("c:/temp/", "test", "xmltest");
+		xml.write(data);
 		
 		//System.out.println(data.getInt("yearsEmployed"));
 		System.out.println(data.getString("department"));

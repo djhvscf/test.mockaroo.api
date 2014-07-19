@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="C:/Users/Dennis/Documents/GitHub/mockaroo.api/dependencies/json-20140107.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Dennis/Documents/GitHub/mockaroo.api/dependencies/jxl.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Dennis/Documents/GitHub/mockaroo.api/dependencies/mysql-connector-java-5.1.31.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Dennis/Documents/GitHub/mockaroo.api/jar/mockarooapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dennis/Documents/GitHub/mockaroo.api/jar/v1.0.0/mockarooapi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
