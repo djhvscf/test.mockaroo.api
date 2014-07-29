@@ -17,7 +17,7 @@ import com.mockaroo.api.classes.MockarooFile;
 public class Test {
 	public static void main(String[] args) throws Exception {
 		
-		MockarooApi mockarooApi = new MockarooApi("60391b90", "application/json");
+		MockarooApi mockarooApi = new MockarooApi("60391b90");
 		HttpURLConnection conn = mockarooApi.getUrl().openConnecion();
 		
 		MockarooCreateJSONObject creater = mockarooApi.getCreater();
