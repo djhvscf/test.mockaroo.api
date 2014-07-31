@@ -17,7 +17,7 @@ import com.mockaroo.api.classes.MockarooFile;
 public class Test {
 	public static void main(String[] args) throws Exception {
 		
-		MockarooApi mockarooApi = new MockarooApi("60391b90");
+		MockarooApi mockarooApi = new MockarooApi("60391b90", 5);
 		HttpURLConnection conn = mockarooApi.getUrl().openConnecion();
 		
 		MockarooCreateJSONObject creater = mockarooApi.getCreater();
@@ -34,7 +34,8 @@ public class Test {
 		columns.put(creater.createFirstName("name"));
 		//columns.put(creater.createTime("time", "05:00 AM", "06:59 AM", MockarooTimeType.H));
 
-		JSONObject data = mockarooApi.getJSONObject(conn, columns);
+		//JSONObject data = mockarooApi.getJSONObject(conn, columns);
+		JSONArray data1 = mockarooApi.getJSONArray(conn, columns);
 	
 		try
 		{
@@ -43,25 +44,25 @@ public class Test {
 			tableColumns[0] = "data";
 			tableColumns[1] = "data2";
 			
-			dataAccess.Insert("table_test", data, tableColumns);
+			dataAccess.Insert("table_test", data1 , tableColumns);
 		}
 		catch(Exception e)
 		{
 		}
 		
 		MockarooFile excel = new MockarooExcel("c:/temp/","test","testing","en", "EN");
-	    excel.write(data); //Generate a Excel file
+	    excel.write(data1 ); //Generate a Excel file
 
 	    MockarooFile json = new MockarooJSON("c:/temp/", "test");
-	    json.write(data); //Generate a .json file
+	    json.write(data1 ); //Generate a .json file
 	    
 	    MockarooFile xml = new MockarooXML("c:/temp/", "test", "xmltest");
-		xml.write(data);
+		xml.write(data1 );
 		
 		//System.out.println(data.getInt("yearsEmployed"));
-		System.out.println(data.getString("department"));
+		System.out.println(data1.getJSONObject(0).getString("department"));
 		//System.out.println(data.getString("dob"));
-		System.out.println(data.getString("name"));
+		System.out.println(data1.getJSONObject(0).getString("name"));
 		//System.out.println(data.getString("time"));
 	}
 }
